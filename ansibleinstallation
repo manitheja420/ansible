@@ -1,0 +1,29 @@
+#create a user:
+sudo usermod ansible
+#to see the users list 
+sudo cat /etc/passwd
+#create a password for the ansible user:
+sudo passwd ansible
+# it will ask for password, confirm password 
+#to see the complete details of user
+sudo cat /etc/shadow
+# after creating the user give the sudo access to the ansible user in sudoers file
+sudo visudo // ansible ALL=(ALL)  NOPASSWD: ALL
+# in the /etc/ssh/sshd_config uncomment the passwordAuthentication yes (line 68)
+# command to see the line numbering type  : se nu (semicollan se nu)
+#restart the sshd
+sudo service sshd restart
+# once the restart is done go to the ansible user
+sudo su ansible
+cd
+#ADD THE HOST DETAILS IN THE INVENTORY FILE
+#uncomment the host key checking file
+sudo vi /etc/ansible/ansible.cfg
+#to configure the remote machines/servers 
+vi /etc/ansible/hosts
+
+
+
+
+
+
